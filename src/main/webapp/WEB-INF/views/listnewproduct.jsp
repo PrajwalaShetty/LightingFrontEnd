@@ -1,78 +1,164 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="cd" uri="http://www.springframework.org/tags"%>
 <%@ page isELIgnored="false"%>
-
 <spring:url value="/resources/css" var="css" />
 <spring:url value="/resources/js" var="js" />
-<spring:url value="/resources/img" var="img" />
+<spring:url value="/resources/images" var="img" />
 <spring:url value="/resources/fonts" var="fonts" />
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta name="robots" content="all,follow">
-    <meta name="googlebot" content="index,follow,snippet,archive">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Obaju e-commerce template">
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
-    <meta name="keywords" content="">
-
-    <title>
-          Lighting
-    </title>
-
-    <meta name="keywords" content="">
-
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
-
-    <!-- styles -->
-    <link href="${css}/font-awesome.css" rel="stylesheet">
-    <link href="${css}/bootstrap.min.css" rel="stylesheet">
-    <link href="${css}/animate.min.css" rel="stylesheet">
-    <link href="${css}/owl.carousel.css" rel="stylesheet">
-    <link href="${css}/owl.theme.css" rel="stylesheet">
-
-    <!-- theme stylesheet -->
-    <link href="${css}/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
-    <!-- your stylesheet with modifications -->
-    <link href="${css}/custom.css" rel="stylesheet">
-
-    <script src="${js}/respond.min.js"></script>
-
-    <link rel="shortcut icon" href="favicon.png">
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Lighting Products list</title>
 </head>
-<body>
-<%@ include file = "shared/header.jsp" %>
-<h3>List Of Products</h3>
+<style type="text/css">
+body {
+	background: url("${img}/profilebg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+}
+.main-agi {
+	background: #fff;
+	width: 50%;
+	margin: 0em auto;
+	box-shadow: 0px 0px 15px 0px #D6D6D6;
+	-o-box-shadow: 0px 0px 15px 0px #D6D6D6;
+	-moz-box-shadow: 0px 0px 15px 0px #D6D6D6;
+	-webkit-box-shadow: 0px 0px 15px 0px #D6D6D6;
+	padding: 3em;
+}
+input[type=text]:focus {
+	width: 80%;
+}
+input[type=text] {
+	flex: 1;
+	padding: 0.6em;
+	border: 0.2em solid rgb(72, 133, 237);
+	width: 150px;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #ccc;
+}
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #fff;
+}
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #f0f0f0;
+}
+.tg .tg-4eph {
+	background-color: #f9f9f9
+}
+</style>
+<%@include file="shared/header.jsp"%>
+<body ng-app="prodapp" ng-controller="myprodController"
+	ng-init="listProduct()">
 
-<table class="tg" border=1 align="center">
-	<tr>
-		<th width="80">Product ID</th>
-		<th width="120">Product Name</th>
-		<th width="120">Product Description</th>
-		<th width="60">Edit</th>
-		<th width="60">Delete</th>
-	</tr>
-	<c:forEach items="${productList}" var="p">
-		<tr>
+	<div>
+		<br>
+		<div align="center">
+			<input type="text" ng-model="searchConditionprod"
+				placeholder="Search Products....">
+		</div>
 
-			<td><c:out value="${p.productid}" /></td>
-			<td><c:out value="${p.productprice}" /></td>
-			<td><c:out value="${p.productdescription}" /></td>
-			<td><a href="<c:url value='/editnewproduct/${p.productid}' />">Edit</a></td>
-			<td><a
-				href="<c:url value='/removenewproduct/${p.productid}' />">Delete</a></td>
-		</tr>
-	</c:forEach>
-</table>
 
-	<%@ include file = "shared/footer.jsp" %>
+		<div class="content">
+			<div class="login">
+				<div class="main-agi">
+					<div class="form-w3agile">
+						<h3>Product List</h3>
+						<div class="table-responsive">
+							<table class="tg">
+								<tr>
+									<security:authorize access="hasRole('ROLE_ADMIN')">
+										<th width="80">Product ID</th>
+									</security:authorize>
+									<th width="160">Product Name</th>
+<!-- 									<th width="120">Product Description</th> -->
+									<th width="160">Category Name</th>
+									<security:authorize access="hasRole('ROLE_ADMIN')">
+										<th width="120">Supplier Name</th>
+									</security:authorize>
+									<th width="120">Product Price</th>
+									<th width="120">Product Image</th>
+									<th width="40">Info</th>
+									<security:authorize access="hasRole('ROLE_ADMIN')">
+										<th width="60">Edit</th>
+										<th width="60">Delete</th>
+									</security:authorize>
+								</tr>
+								<%-- 						<c:forEach items="${productList}" var="p"> --%>
+								<tr ng-repeat="p in products | filter:searchConditionprod">
+									<security:authorize access="hasRole('ROLE_ADMIN')">
+										<td>{{p.productid}}</td>
+									</security:authorize>
+									<td><a href="<c:url value='/infoproduct/{{p.productid}}'/>">
+											{{p.productname}}</a></td>
+<!-- 									<td>{{p.productdescription}}</td> -->
+									<td>{{p.categoryname}}</td>
+									<security:authorize access="hasRole('ROLE_ADMIN')">
+										<td>{{p.suppliername}}</td>
+									</security:authorize>
+									<td>{{p.productprice}}</td>
+									<c:url value="/resources/images/{{p.productname}}.jpg"
+										var="imgg" />
+
+									<td><a href="<c:url value='/infoproduct/{{p.productid}}'/>">
+											<img src="${imgg}" alt="prodimage" height="80" width="80" /></a></td>
+
+									<td><a href="<c:url value='/infoproduct/{{p.productid}}'/>"><span
+											class="glyphicon glyphicon-info-sign"></span></a></td>
+
+
+
+									<security:authorize access="hasRole('ROLE_ADMIN')">
+										<td><a href="<c:url value='/editnewproduct/{{p.productid}}' />">Edit</a></td>
+										<td><a
+											href="<c:url value='/removenewproduct/{{p.productid}}' />">Delete</a></td>
+									</security:authorize>
+								</tr>
+								<%-- 							</c:forEach> --%>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%@include file="shared/footer.jsp"%>
+	<script src="${js}/app.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.lightingbackend.model.Category;
 import com.niit.lightingbackend.model.Supplier;
-import com.niit.lightingbackend.model.User;
+import com.niit.lightingbackend.model.UserCustomer;
 
 @Controller
 public class HomeContoller {
@@ -25,16 +25,16 @@ public class HomeContoller {
 		return model;
 	}
 
-	@RequestMapping("/account")
-	
-		public ModelAndView account() {
-			System.out.println("Starting of the method registerUser");
-			ModelAndView mv = new ModelAndView("account");
-			User u = new User();
-			mv.addObject("Userdata",u);
-			return mv;
-	
-	}
+//	@RequestMapping("/account")
+//	
+//		public ModelAndView account() {
+//			System.out.println("Starting of the method registerUser");
+//			ModelAndView mv = new ModelAndView("account");
+//			User u = new User();
+//			mv.addObject("Userdata",u);
+//			return mv;
+//	
+//	}
 	/*@RequestMapping(value= "/category")
 	public ModelAndView category() {
 		System.out.println("inside controller");

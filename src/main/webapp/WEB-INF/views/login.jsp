@@ -23,10 +23,10 @@
 					<div class=logout style="color:#ff0000"> ${logout} </div>
 					</c:if>
 					<br>
-					<form action="<c:url value="j_spring_security-check"/> "method="post">
+					<form action="<c:url value="j_spring_security-check"/>" method="post">
 						<div class="key">
-							<i class="fa fa-user" aria-hidden="true"></i> <input
-								type="text" value="User Name" name="j_Userid"
+							<i class="fa fa-user" aria-hidden="true"></i> 
+								<input type="text" value="User Name" name="j_Userid"
 								onfocus="this.value = '';"
 								onblur="if (this.value == '') {this.value = 'User name';}"
 								required="">
@@ -34,7 +34,7 @@
 						</div>
 						<div class="key">
 							<i class="fa fa-lock" aria-hidden="true"></i> <input
-								type="password" value="Password" name="j_Userpassword"
+								type="password" value="Password" name="j_password"
 								onfocus="this.value = '';"
 								onblur="if (this.value == '') {this.value = 'Password';}"
 								required="">
@@ -43,6 +43,8 @@
 						<input type="submit" value="Login"> <input type="hidden"
 							name="${csrf.parametername}" value="${_csrf.token}" />
 					</form>
+					<br>
+				
 				</div>
 				<div class="forg">
 					<a href="<c:url value='/ContactUs'/>" class="forg-left">Forgot

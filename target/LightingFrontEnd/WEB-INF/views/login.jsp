@@ -9,32 +9,53 @@
 <spring:url value="/resources/images" var="img" />
 <spring:url value="/resources/fonts" var="fonts" />
 <%@ include file="shared/header.jsp" %>
-
-<div class="login_sec">
-	 <div class="container">
-		 <ol class="breadcrumb">
-		  <li><a href="index">Home</a></li>
-		  <li class="active">Login</li>
-		 </ol>
-		 <h2>Login</h2>
-		 <div class="col-md-6 log">			 
-				 <p>Welcome, please enter the following to continue.</p>
-				 <p>If you have previously Login with us, <span>click here</span></p>
-				 <form>
-					 <h5>User Name</h5>	
-					 <input type="text" value="">
-					 <h5>Password</h5>
-					 <input type="password" value="">					
-					 <input type="submit" value="Login">	
-						<a class="acount-btn" href="account">Create an Account</a>
-				 </form>
-				 <a href="#">Forgot Password ?</a>
-					
-		 </div>	
+	<!--content-->
+	<div class="content">
+		<!--login-->
+		<div class="login">
+			<div class="main-agileits">
+				<div class="form-w3agile">
+					<h3>Login </h3>
+					<c:if test="${not empty error}">
+						<div class=error style="color: #ff0000">${error}</div>
+					</c:if>
+					<c:if test="${not empty logout}">
+					<div class=logout style="color:#ff0000"> ${logout} </div>
+					</c:if>
+					<br>
+					<form action="<c:url value="j_spring_security-check"/>" method="post">
+						<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i> 
+								<input type="text" value="User Name" name="j_Userid"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'User name';}"
+								required="">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-lock" aria-hidden="true"></i> <input
+								type="password" value="Password" name="j_password"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Password';}"
+								required="">
+							<div class="clearfix"></div>
+						</div>
+						<input type="submit" value="Login"> <input type="hidden"
+							name="${csrf.parametername}" value="${_csrf.token}" />
+					</form>
+					<br>
 				
-		 <div class="clearfix"></div>
-	 </div>
-</div>
+				</div>
+				<div class="forg">
+					<a href="<c:url value='/ContactUs'/>" class="forg-left">Forgot
+						Password</a> <a href="<c:url value='/account'/>" class="forg-right">Register</a>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!--login-->
+	</div>
+	<!--content-->
 <%@ include file="shared/footer.jsp" %>
 
 </body>

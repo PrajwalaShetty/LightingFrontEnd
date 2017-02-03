@@ -87,7 +87,7 @@
 
       if(posX-(cursorSize[0]/2) < offset.left){
         posX = offset.left+(cursorSize[0]/2);
-      }else if(posX+(cursorSize[0]/2) > offset.left+imageWidth){
+       }else if(posX+(cursorSize[0]/2) > offset.left+imageWidth){
         posX = (offset.left+imageWidth)-(cursorSize[0]/2);
       }
 
@@ -120,3 +120,4 @@
     $('[data-imagezoom]').imageZoom();
   });
 })(jQuery);
+

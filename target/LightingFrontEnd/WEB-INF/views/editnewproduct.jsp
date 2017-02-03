@@ -77,8 +77,7 @@ body {
 				<div class="form-w3agile form1">
 					<h3>Add Product</h3>
 					
-					<form:form action="${contextPath}/addproduct" modelAttribute="Product" method="post"
-					enctype="multipart/form-data">
+		<form:form action="${contextPath}/addproduct" modelAttribute="Product" method="post" enctype="multipart/form-data">
 
 						<form:label path="productid">Product ID</form:label>
 						<div class="key">
@@ -111,22 +110,23 @@ body {
 							<div class="clearfix"></div>
 						</div>
 
+						
 						<form:label path="categoryname">Category Name</form:label>
 						<div class="key">
 							<form:input class="form-control" items="${Catgname}"
-								path="categoryname" readonly="true" />
+								path="categoryname" />
 							<div class="clearfix"></div>
 						</div>
 
 						<form:label path="suppliername">Supplier name</form:label>
 						<div class="key">
 							<form:input class="form-control" items="${Supname}"
-								path="suppliername" readonly="true" />
+								path="suppliername" />
 							<div class="clearfix"></div>
 						</div>
 
-					<%-- 	<form:label path="productimage">Product Image</form:label>
-						<div class="key"> --%>
+						<form:label path="image">Product Image</form:label>
+						<div class="key">
 
 							<form:input class="form-control" type="file" path="image" />
 							<div class="clearfix"></div>

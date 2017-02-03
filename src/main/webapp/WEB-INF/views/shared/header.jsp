@@ -48,6 +48,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
   </script>
   
+  
+  
+  
 <div class="header-top">
 	 <div class="header-bottom">			
 				<div class="logo">
@@ -99,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
-					<li class="grid"><a href="#">Accessories</a>
+					<!-- <li class="grid"><a href="#">Accessories</a>
 						<div class="mepanel">
 							<div class="row">
 								<div class="col1 me-one">
@@ -141,22 +144,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 						</div>
-					</li>
-					<li class="grid"><a href="login">Login</a></li>
-					<li class="grid"><a href="contact">Contact</a></li>					
-				</ul>				
+					</li> -->
+ 											<c:if test="${pageContext.request.userPrincipal.name == null }">
+						<li><a href="<c:url value='/login'/>">Login</a></li>
+						</c:if>
+						<c:if test="${pageContext.request.userPrincipal.name != null }">
+						<li><a>Welcome:${pageContext.request.userPrincipal.name}</a></li>
+						<li><a href="<c:url value='/Logout'/>">Logout</a></li>
+						</c:if>
+						<li><a href="<c:url value='/account'/>"> Account</a></li>
+						
+					</ul>	 	
 			 </div>
+			 <div class="header-right2">
+						<div class="cart box_1">
+						<a>
+							<a href="<c:url value='/cart/getCartId'/>"> Cart <img
+								src="${img}/bag.png" alt="" align="center" />
+							</a>
+						</a>
+						</div>
+						</div>
+					
+			 
 			 <!---->
-			 <div class="cart box_1">
-				 <a href="checkout">
-					<div class="total">
-					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>)</div>
-					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+			
 			 	<div class="clearfix"> </div>
 			 </div>
 			 <div class="clearfix"> </div>
 			 <!---->			 
 			 </div>
 			<div class="clearfix"> </div>
+			
+		<script src="${js}/angular min.js"></script>

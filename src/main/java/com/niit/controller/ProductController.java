@@ -71,7 +71,7 @@ public class ProductController {
 		return "/listnewproduct";
 	}
 
-	@RequestMapping(value = "/removeprod/{productid}")
+	@RequestMapping(value = "/removenewproduct/{productid}")
 	public String DeleteProducts(@PathVariable("productid") int id) {
 		this.pdao.delete(id);
 		return "redirect:/listnewproduct";
@@ -86,7 +86,17 @@ public class ProductController {
 		model.addAttribute("Supname", pdao.listsuppliername());
 		return "editnewproduct";
 	}
-
 	
+	@RequestMapping("/infoproduct/{productid}")
+	public ModelAndView getRecord(@PathVariable("productid") int id, Model model) {
+		Product productObject = pdao.get(id);
+		// System.out.println("view:"+movieObject.getMoviename());
+		return new ModelAndView("single", "productObject", productObject);
+	}
+
+	@RequestMapping(value = "/listproductsjson")
+	public @ResponseBody List<Product> listProdInJSON() {
+		return pdao.list();
+	}
 
 }

@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title> Products list</title>
+<title>Lighting Products list</title>
 </head>
 <style type="text/css">
 body {
@@ -82,7 +82,7 @@ input[type=text] {
 }
 </style>
 <%@include file="shared/header.jsp"%>
-<body ng-app="prodapp" ng-controller="productController"
+<body ng-app="prodapp" ng-controller="myprodController"
 	ng-init="listProduct()">
 
 	<div>
@@ -105,8 +105,8 @@ input[type=text] {
 										<th width="80">Product ID</th>
 									</security:authorize>
 									<th width="160">Product Name</th>
-									<th width="120">Product Description</th>
-									<th width="120">Category Name</th>
+<!-- 									<th width="120">Product Description</th> -->
+									<th width="160">Category Name</th>
 									<security:authorize access="hasRole('ROLE_ADMIN')">
 										<th width="120">Supplier Name</th>
 									</security:authorize>
@@ -118,36 +118,37 @@ input[type=text] {
 										<th width="60">Delete</th>
 									</security:authorize>
 								</tr>
-									<tr ng-repeat="p in products | filter:searchConditionprod">
+								<%-- 						<c:forEach items="${productList}" var="p"> --%>
+								<tr ng-repeat="p in products | filter:searchConditionprod">
 									<security:authorize access="hasRole('ROLE_ADMIN')">
 										<td>{{p.productid}}</td>
 									</security:authorize>
-									<td><a href="<c:url value='/infoprod/{{p.productid}}'/>">
-											{{p.productname}}</td>
-									<td>{{p.productdescription}}</td>
+									<td><a href="<c:url value='/infoproduct/{{p.productid}}'/>">
+											{{p.productname}}</a></td>
+<!-- 									<td>{{p.productdescription}}</td> -->
 									<td>{{p.categoryname}}</td>
 									<security:authorize access="hasRole('ROLE_ADMIN')">
 										<td>{{p.suppliername}}</td>
 									</security:authorize>
 									<td>{{p.productprice}}</td>
 									<c:url value="/resources/images/{{p.productname}}.jpg"
-										var="image" />
+										var="imgg" />
 
-									<td><a href="<c:url value='/infoprod/{{p.productid}}'/>">
-											<img src="${image}" alt="prodimage" height="80" width="80" /></td>
+									<td><a href="<c:url value='/infoproduct/{{p.productid}}'/>">
+											<img src="${imgg}" alt="prodimage" height="80" width="80" /></a></td>
 
-									<td><a href="<c:url value='/infoprod/{{p.productid}}'/>"><span
+									<td><a href="<c:url value='/infoproduct/{{p.productid}}'/>"><span
 											class="glyphicon glyphicon-info-sign"></span></a></td>
 
 
 
 									<security:authorize access="hasRole('ROLE_ADMIN')">
-										<td><a href="<c:url value='/editprod/{{p.productid}}' />">Edit</a></td>
+										<td><a href="<c:url value='/editnewproduct/{{p.productid}}' />">Edit</a></td>
 										<td><a
-											href="<c:url value='/removeprod/{{p.productid}}' />">Delete</a></td>
+											href="<c:url value='/removenewproduct/{{p.productid}}' />">Delete</a></td>
 									</security:authorize>
 								</tr>
-								
+								<%-- 							</c:forEach> --%>
 							</table>
 
 						</div>

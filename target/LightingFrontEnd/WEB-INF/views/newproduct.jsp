@@ -43,10 +43,6 @@ body {
 					<c:url var="addaction" value="/newproduct/add"></c:url>
 					<form:form action="addproduct" commandName="Proddata"
 						enctype="multipart/form-data">
-
-						
-
-
 						<form:label path="productname">Product Name</form:label>
 						<div class="key">
 							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
@@ -86,15 +82,12 @@ body {
 							<div class="clearfix"></div>
 						</div>
 
-<%-- 						<form:label path="productimage">Product Image</form:label> --%>
-<!-- 						<div class="key"> -->
-
-
-
+						
+						<form:label path="image">Product Image</form:label>
+						<div class="key">
 							<form:input class="form-control" type="file" path="image" />
 							<div class="clearfix"></div>
 						</div>
-
 						<input type="submit" value="Submit">
 
 					</form:form>
