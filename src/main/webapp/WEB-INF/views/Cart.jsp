@@ -99,16 +99,16 @@ input[type=text] {
 									<th width="160">Total Price</th>
 									<th width="120">Action</th>
 								</tr>
-<!-- 								<tr ng-repeat="cartItem in cart.cartItems"> -->
-<!-- 									<td>{{cartItem.product.productname}}</td> -->
-<!-- 									<td>{{cartItem.quantity}}</td> -->
-<!-- 									<td>{{cartItem.product.productprice}}</td> -->
-<!-- 									<td>{{cartItem.totalprice}}</td> -->
-<!-- 									<td><a href="#" class="label label-danger" -->
-<!-- 										ng-click="removeFromCart(cartItem.cartitemid)"> <span -->
-<!-- 											class="glyphicon glyphicon-remove"></span> Remove -->
-<!-- 									</a></td> -->
-<!-- 								</tr> -->
+								<tr ng-repeat="cartItem in cart.cartItems">
+									<td>{{cartItem.product.productname}}</td>
+									<td>{{cartItem.quantity}}</td>
+									<td>{{cartItem.product.productprice}}</td>
+									<td>{{cartItem.totalprice}}</td>
+									<td><a href="#" class="label label-danger"
+										ng-click="removeFromCart(cartItem.cartitemid)"> <span
+											class="glyphicon glyphicon-remove"></span> Remove
+									</a></td>
+								</tr>
 							</table>
 
 							<br>
@@ -149,3 +149,4 @@ input[type=text] {
 	<script src="${js}/cartcontroller.js"></script>
 </body>
 </html>
+

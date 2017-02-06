@@ -25,40 +25,7 @@ public class HomeContoller {
 		return model;
 	}
 
-//	@RequestMapping("/account")
-//	
-//		public ModelAndView account() {
-//			System.out.println("Starting of the method registerUser");
-//			ModelAndView mv = new ModelAndView("account");
-//			User u = new User();
-//			mv.addObject("Userdata",u);
-//			return mv;
-//	
-//	}
-	/*@RequestMapping(value= "/category")
-	public ModelAndView category() {
-		System.out.println("inside controller");
-		Category c = new Category();
-		ModelAndView model = new ModelAndView("category");
-     	model.addObject("Categorydata",c);
-		return model;			
-		}*/
-	
-	/*@RequestMapping(value= "/supplier")
-	public ModelAndView supplier() {
-		System.out.println("inside controller");
-		Supplier s = new Supplier();
-		ModelAndView model = new ModelAndView("supplier");
-     	model.addObject("Supplierdata",s);
-		return model;			
-		}*/
-	
-/*
-	@RequestMapping("/product")
-	public ModelAndView product() {
-		ModelAndView model = new ModelAndView("products");
-		return model;
-	}*/
+
 
 	@RequestMapping("/contact")
 	public ModelAndView Contact() {
