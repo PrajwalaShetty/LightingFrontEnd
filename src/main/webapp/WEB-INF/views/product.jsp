@@ -11,6 +11,14 @@
 <spring:url value="/resources/images" var="img" />
 <spring:url value="/resources/fonts" var="fonts" />
 <%@ include file="shared/header.jsp" %>
+ <style>
+    body {
+	background: url("${img}/profilebg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+}
+    </style>
 
 <!--header//-->
 <div class="product-model">	 

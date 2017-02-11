@@ -12,6 +12,12 @@
 <spring:url value="/resources/fonts" var="fonts" />
 
 <%@ include file="shared/header.jsp" %>
+body {
+	background: url("${img}/profilebg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+}
 </div>
 <!-- check out -->
 <div class="container">

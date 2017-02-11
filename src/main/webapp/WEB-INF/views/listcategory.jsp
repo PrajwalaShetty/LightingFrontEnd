@@ -26,7 +26,7 @@
           Lighting
     </title>
 
-    <meta name="keywords" content="">
+    <meta name="keywords" container="">
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
@@ -50,6 +50,14 @@
 </head>
 <body>
 <%@ include file = "shared/header.jsp" %>
+ <style>
+    body {
+	background: url("${img}/profilebg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+}
+    </style>
 <h3>List Of Categories</h3>
 
 <table class="tg" border=1 align="center">

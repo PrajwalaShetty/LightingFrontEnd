@@ -56,6 +56,14 @@
 <body align="center">
    
     <%@ include file = "shared/header.jsp" %>
+     <style>
+    body {
+	background: url("${img}/profilebg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+}
+    </style>
     <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 	<!--content-->
 	<div class="content">

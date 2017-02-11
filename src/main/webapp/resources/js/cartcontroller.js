@@ -5,12 +5,12 @@ var myapp = angular
 				function($scope, $http) {
 				
 					$scope.listProduct = function() {
-						// alert('before contol call');
+						alert('List product');
 						$http
 								.get(
 										'/LightingFrontEnd/listproductsjson')
 								.success(function(data) {
-									// alert('after contol call');
+									 alert('after contol call');
 
 									$scope.products = data;
 									console.log(data);

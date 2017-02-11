@@ -29,7 +29,7 @@ public class OrderController {
         customerOrder.setCart(cart);
 
 
-        UserCustomer customer = cart.getUserCustomer();
+        UserCustomer customer = cart.getUsercustomer();
         //SET CUSTOMERID
         customerOrder.setUser(customer);
         //SET BILLINGADDRESSID

@@ -89,7 +89,7 @@ input[type=text] {
 			<div class="login">
 				<div class="main-agi">
 					<div class="form-w3agile">
-						<h3>Items in your Cart</h3>
+						<h3>Items in your Cart{{cartId}}</h3>
 						<div class="table-responsive">
 							<table class="tg">
 								<tr>
@@ -115,7 +115,7 @@ input[type=text] {
 							<div align="center">
 
 								
-								<h2><span class="label label-info">Grand Total = {{calculateGrandTotal()}}</h2>
+								<h2><span class="label label-info">{{67+9}}Grand Total = {{calculateGrandTotal()}}</h2>
 							
 								<br>
 								<c:url value="/listnewproduct" var="url"></c:url>
@@ -149,3 +149,4 @@ input[type=text] {
 	<script src="${js}/cartcontroller.js"></script>
 </body>
 </html>
+

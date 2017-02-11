@@ -5,12 +5,12 @@ var myapp = angular
 				function($scope, $http) {
 				
 					$scope.listProduct = function() {
-						// alert('before contol call');
+						alert('List product');
 						$http
 								.get(
-										'http://localhost:8002/LightingFrontEnd/listproductsjson')
+										'/LightingFrontEnd/listproductsjson')
 								.success(function(data) {
-									// alert('after contol call');
+									 alert('after contol call');
 
 									$scope.products = data;
 									console.log(data);
@@ -21,7 +21,7 @@ var myapp = angular
 					$scope.addToCart = function(productid) {
 
 						$http.put(
-								'http://localhost:8002/LightingFrontEnd/cart/add/'
+								'/LightingFrontEnd/cart/add/'
 										+ productid).success(function() {
 
 							alert('Added Successfully to the cart!');
@@ -30,7 +30,7 @@ var myapp = angular
 
 					$scope.refreshCart = function() {
 						$http.get(
-								'http://localhost:8002/LightingFrontEnd/cart/getCart/'
+								'/LightingFrontEnd/cart/getCart/'
 										+ $scope.cartId).success(
 								function(data) {
 									$scope.cart = data;
@@ -46,7 +46,7 @@ var myapp = angular
 
 					$scope.removeFromCart = function(cartitemid) {
 						$http.put(
-								'http://localhost:8002/LightingFrontEnd/cart/removecartitem/'
+								'/LightingFrontEnd/cart/removecartitem/'
 										+ cartitemid).success(function() {
 							$scope.refreshCart();
 							alert('Removed Successfully from the cart!');
@@ -56,7 +56,7 @@ var myapp = angular
 					$scope.clearCart = function() {
 
 						$http.put(
-								'http://localhost:8002/LightingFrontEnd/cart/removeAllItems/'
+								'/LightingFrontEnd/cart/removeAllItems/'
 										+ $scope.cartId)
 
 						.success(function() {

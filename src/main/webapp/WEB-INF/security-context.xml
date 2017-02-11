@@ -82,18 +82,15 @@
 		<security:intercept-url pattern="/edituser/**"
 			access="hasAnyRole('ROLE_ADMIN')" />
 
-		<!-- <security:intercept-url pattern="/order/{cartId}/**"
+		 <security:intercept-url pattern="/order/{cartId}/**"
 			access="hasAnyRole('ROLE_USER')" />
 
 		<security:intercept-url pattern="/checkout**"
 			access="hasAnyRole('ROLE_USER')" />
 
-
-
-
-		<security:intercept-url pattern="/cart/**"
+       <security:intercept-url pattern="/cart/**"
 			access="hasAnyRole('ROLE_USER')" />
- -->
+
 
 
 

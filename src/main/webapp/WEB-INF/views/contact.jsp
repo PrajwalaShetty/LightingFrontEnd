@@ -8,6 +8,15 @@
 <spring:url value="/resources/images" var="img" />
 <spring:url value="/resources/fonts" var="fonts" />
 <%@ include file="shared/header.jsp" %>
+ <style>
+    body {
+	background: url("${img}/profilebg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	background-attachment: fixed;
+}
+    </style>
+
 <div class="contact">
 	  <div class="container">
 		 <ol class="breadcrumb">
@@ -22,7 +31,7 @@
 			    	 	<h4>Find Us Here</h4>
 			    	 		<div class="map">
 					   			<iframe src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe>
-					   		</div>
+					  </div>
       				</div>
       			<div class="company_address">
 				     	<h4>Company Information :</h4>

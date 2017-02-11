@@ -39,8 +39,10 @@
 	      </ul>
 	  </div>
   </div>
+  <br>
+  <br>
 <!---->
-<script src="${js}/bootstrap.js"> </script>
+<%-- <script src="${js}/bootstrap.js"> </script>
 
 <div class="items">
 	 <div class="container">
@@ -156,7 +158,7 @@
 		 </div>
 	 </div>
 </div>
-<!---->
+<!----> --%>
 <div class="offers">
 	 <div class="container">
 	 <h3>End of Season Sale</h3>

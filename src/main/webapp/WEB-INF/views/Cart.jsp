@@ -115,7 +115,7 @@ input[type=text] {
 							<div align="center">
 
 								
-								<h2><span class="label label-info">{{67+9}}Grand Total = {{calculateGrandTotal()}}</h2>
+								<h2><span class="label label-info">Grand Total = {{calculateGrandTotal()}}</h2>
 							
 								<br>
 								<c:url value="/listnewproduct" var="url"></c:url>
